@@ -1,0 +1,2984 @@
+[gd_scene load_steps=37 format=3 uid="uid://cay4bl368pw0f"]
+
+[ext_resource type="Script" uid="uid://dj5hge7og33er" path="res://Dingo - Dungeon Generator Plugin/Scripts/dingo_generator.gd" id="1_7dir4"]
+[ext_resource type="Script" uid="uid://dnxnmk7p8ya0s" path="res://Dingo - Dungeon Generator Plugin/Scripts/dingo_room_types.gd" id="2_xff22"]
+[ext_resource type="Resource" uid="uid://dsqdxsynhssg" path="res://Dingo - Dungeon Generator Plugin/Room Types/DungeonKit/dungeonkit_stone_standard.tres" id="3_g36r2"]
+[ext_resource type="Script" uid="uid://c1eqivxowbyo8" path="res://Dingo - Dungeon Generator Plugin/Scripts/dingo_builder.gd" id="5_op55s"]
+[ext_resource type="Resource" uid="uid://c2hayur3vuusa" path="res://Dingo - Dungeon Generator Plugin/Room Types/DungeonKit/dungeonkit_jade_standard.tres" id="5_wyj30"]
+[ext_resource type="Resource" uid="uid://bpafdhoeaabih" path="res://Dingo - Dungeon Generator Plugin/Room Types/DungeonKit/dungeonkit_stone_tavern.tres" id="6_0c1fc"]
+[ext_resource type="Resource" uid="uid://d02si4ugjc38a" path="res://Dingo - Dungeon Generator Plugin/Room Types/DungeonKit/dungeonkit_magic_standard.tres" id="6_aienv"]
+[ext_resource type="PackedScene" uid="uid://ck720sasqbul1" path="res://Dingo - Dungeon Generator Plugin/Scenes/Room Scenes/Dungeonkit Scenes/dungeonkit_stone_corridor_scene.tscn" id="6_xff22"]
+[ext_resource type="PackedScene" uid="uid://bujpm6ejc6v67" path="res://Dingo - Dungeon Generator Plugin/Scenes/Room Scenes/Dungeonkit Scenes/dungeonkit_stone_standard_scene.tscn" id="7_7dir4"]
+[ext_resource type="Resource" uid="uid://b8kat57rj7uwb" path="res://Dingo - Dungeon Generator Plugin/Room Types/DungeonKit/dungeonkit_stone_boss.tres" id="7_ce4hr"]
+[ext_resource type="Resource" uid="uid://38rabukobsvt" path="res://Dingo - Dungeon Generator Plugin/Room Types/DungeonKit/dungeonkit_starting.tres" id="7_xff22"]
+[ext_resource type="Script" uid="uid://cnwyvoopooobm" path="res://Dingo - Dungeon Generator Plugin/Scripts/dingo_remove_pieces.gd" id="8_ce4hr"]
+[ext_resource type="Resource" uid="uid://nup1qdrhj4dr" path="res://Dingo - Dungeon Generator Plugin/Room Types/DungeonKit/dungeonkit_jade_boss.tres" id="8_ohi08"]
+[ext_resource type="Resource" uid="uid://befvahxe472ii" path="res://Dingo - Dungeon Generator Plugin/Room Types/DungeonKit/dungeonkit_jade_treasure.tres" id="9_mq1ln"]
+[ext_resource type="PackedScene" uid="uid://kfwlvqhhamvg" path="res://Dingo - Dungeon Generator Plugin/Scenes/Room Scenes/Dungeonkit Scenes/dungeonkit_starting_scene.tscn" id="9_op55s"]
+[ext_resource type="Resource" uid="uid://ldg2dqnf7iyr" path="res://Dingo - Dungeon Generator Plugin/Room Types/DungeonKit/dungeonkit_jade_tavern.tres" id="10_le0gi"]
+[ext_resource type="Resource" uid="uid://b4421exc1yy7y" path="res://Dingo - Dungeon Generator Plugin/Room Types/DungeonKit/dungeonkit_stone_treasure.tres" id="10_r0e0f"]
+[ext_resource type="PackedScene" uid="uid://cua126pdbgr70" path="res://Dingo - Dungeon Generator Plugin/Scenes/Room Scenes/Dungeonkit Scenes/dungeonkit_stone_boss.tscn" id="11_0tstp"]
+[ext_resource type="MeshLibrary" uid="uid://4yypuwvvfb5x" path="res://Dingo - Dungeon Generator Plugin/Mesh Libraries/DungeonKit02.tres" id="11_kfy22"]
+[ext_resource type="PackedScene" uid="uid://bmhqs5f0nenhd" path="res://Dingo - Dungeon Generator Plugin/Scenes/Room Scenes/Dungeonkit Scenes/dungeonkit_jade_standard_scene.tscn" id="12_op55s"]
+[ext_resource type="Resource" uid="uid://b1mgterilak21" path="res://Dingo - Dungeon Generator Plugin/Room Types/DungeonKit/dungeonkit_magic_boss.tres" id="12_opigg"]
+[ext_resource type="PackedScene" uid="uid://cd0xlbllyioe7" path="res://Dingo - Dungeon Generator Plugin/Scenes/Room Scenes/Dungeonkit Scenes/dungeonkit_jade_boss.tscn" id="13_3u6ko"]
+[ext_resource type="Resource" uid="uid://dcjpmehspadwe" path="res://Dingo - Dungeon Generator Plugin/Room Types/DungeonKit/dungeonkit_magic_treasure.tres" id="13_han6o"]
+[ext_resource type="PackedScene" uid="uid://dabal717lrwei" path="res://Dingo - Dungeon Generator Plugin/Scenes/Room Scenes/Dungeonkit Scenes/dungeonkit_magic_standard_scene.tscn" id="14_emnmg"]
+[ext_resource type="Resource" uid="uid://dq6j0e8xs5awt" path="res://Dingo - Dungeon Generator Plugin/Room Types/DungeonKit/dungeonkit_magic_tavern.tres" id="14_nkm63"]
+[ext_resource type="PackedScene" uid="uid://dafrvrsveqshk" path="res://Dingo - Dungeon Generator Plugin/Scenes/Room Scenes/Dungeonkit Scenes/dungeonkit_magic_boss.tscn" id="16_a58hv"]
+[ext_resource type="PackedScene" uid="uid://dah7o823jvq8u" path="res://Dingo - Dungeon Generator Plugin/Scenes/Room Scenes/Dungeonkit Scenes/dungeonkit_stone_treasure_scene.tscn" id="18_kfy22"]
+[ext_resource type="PackedScene" uid="uid://c2niuj4hhycb4" path="res://Dingo - Dungeon Generator Plugin/Scenes/Room Scenes/Dungeonkit Scenes/dungeonkit_magic_treasure_scene.tscn" id="23_nkm63"]
+[ext_resource type="PackedScene" uid="uid://s3pspmm5tlfm" path="res://Dingo - Dungeon Generator Plugin/Scenes/Room Scenes/Dungeonkit Scenes/dungeonkit_jade_treasure_scene.tscn" id="26_0pvfg"]
+[ext_resource type="PackedScene" uid="uid://b6wqvt5hj6gyb" path="res://Dingo - Dungeon Generator Plugin/Scenes/Room Scenes/Dungeonkit Scenes/dungeonkit_jade_tavern_scene.tscn" id="30_srrfd"]
+[ext_resource type="PackedScene" uid="uid://cn3v01n5xsoq2" path="res://Dingo - Dungeon Generator Plugin/Scenes/Room Scenes/Dungeonkit Scenes/dungeonkit_magic_tavern_scene.tscn" id="31_ilmjp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g4sdw"]
+sky_top_color = Color(0.2661329, 0.23587278, 0.36600098, 1)
+sky_horizon_color = Color(0.55246794, 0.48198825, 0.6659384, 1)
+ground_bottom_color = Color(0.15073341, 0.14489254, 0.24760056, 1)
+ground_horizon_color = Color(0.40112168, 0.3563846, 0.5374132, 1)
+ground_curve = 0.019999996
+sun_angle_max = 181.38
+sun_curve = 0.01689845
+
+[sub_resource type="Sky" id="Sky_670jf"]
+sky_material = SubResource("ProceduralSkyMaterial_g4sdw")
+
+[sub_resource type="Environment" id="Environment_5wmbg"]
+background_mode = 2
+background_color = Color(0.61446476, 0.6287131, 0.9371035, 1)
+background_energy_multiplier = 0.4
+sky = SubResource("Sky_670jf")
+ambient_light_source = 2
+ambient_light_color = Color(0.35227564, 0.3721457, 0.6512386, 1)
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 1.15
+glow_bloom = 0.05
+fog_enabled = true
+fog_light_color = Color(0.053168155, 0.048148148, 0.09850519, 1)
+fog_sky_affect = 0.0
+fog_height_density = 1.2143
+
+[sub_resource type="GDScript" id="GDScript_670jf"]
+script/source = "extends CharacterBody3D
+
+
+const SPEED = 5.0
+const JUMP_VELOCITY = 4.5
+
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var input_dir := Input.get_vector(\"ui_left\", \"ui_right\", \"ui_up\", \"ui_down\")
+	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+
+	move_and_slide()
+"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4sdw"]
+
+[node name="Dungeon" type="Node3D"]
+script = ExtResource("1_7dir4")
+guarantee_all_static_doors = false
+border_width = 35
+border_height = 63
+room_types = Array[ExtResource("2_xff22")]([ExtResource("7_xff22"), ExtResource("3_g36r2"), ExtResource("10_r0e0f"), ExtResource("6_0c1fc"), ExtResource("7_ce4hr"), ExtResource("5_wyj30"), ExtResource("9_mq1ln"), ExtResource("10_le0gi"), ExtResource("8_ohi08"), ExtResource("6_aienv"), ExtResource("13_han6o"), ExtResource("14_nkm63"), ExtResource("12_opigg")])
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5wmbg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.7142559, -0.092786446, -0.69370687, -0.5940315, -0.44374654, 0.6709811, -0.37008795, 0.89133596, 0.26183054, 0, 3.0343986, -2.151249)
+shadow_enabled = true
+shadow_opacity = 0.57
+shadow_blur = 1.78
+directional_shadow_fade_start = 0.0
+directional_shadow_max_distance = 21.0
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000319004, -0.0049119, 0.00154376)
+visible = false
+mesh_library = ExtResource("11_kfy22")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65535, 65535, 0, 65535, 63, 0, 0, 65535, 0, 0, 63, 0, 1, 65535, 0, 1, 63, 0, 2, 65535, 0, 2, 63, 0, 3, 65535, 0, 3, 63, 0, 4, 65535, 0, 4, 63, 0, 5, 65535, 0, 5, 63, 0, 6, 65535, 0, 6, 63, 0, 7, 65535, 0, 7, 63, 0, 8, 65535, 0, 8, 63, 0, 9, 65535, 0, 9, 63, 0, 10, 65535, 0, 10, 63, 0, 11, 65535, 0, 11, 63, 0, 12, 65535, 0, 12, 63, 0, 13, 65535, 0, 13, 63, 0, 14, 65535, 0, 14, 63, 0, 15, 65535, 0, 15, 63, 0, 16, 65535, 0, 16, 63, 0, 17, 65535, 0, 17, 63, 0, 18, 65535, 0, 18, 63, 0, 19, 65535, 0, 19, 63, 0, 20, 65535, 0, 20, 63, 0, 21, 65535, 0, 21, 63, 0, 22, 65535, 0, 22, 63, 0, 23, 65535, 0, 23, 63, 0, 24, 65535, 0, 24, 63, 0, 25, 65535, 0, 25, 63, 0, 26, 65535, 0, 26, 63, 0, 27, 65535, 0, 27, 63, 0, 28, 65535, 0, 28, 63, 0, 29, 65535, 0, 29, 63, 0, 30, 65535, 0, 30, 63, 0, 31, 65535, 0, 31, 63, 0, 32, 65535, 0, 32, 63, 0, 33, 65535, 0, 33, 63, 0, 34, 65535, 0, 34, 63, 0, 35, 65535, 0, 35, 63, 0, 65535, 0, 0, 35, 0, 0, 65535, 1, 0, 35, 1, 0, 65535, 2, 0, 35, 2, 0, 65535, 3, 0, 35, 3, 0, 65535, 4, 0, 35, 4, 0, 65535, 5, 0, 35, 5, 0, 65535, 6, 0, 35, 6, 0, 65535, 7, 0, 35, 7, 0, 65535, 8, 0, 35, 8, 0, 65535, 9, 0, 35, 9, 0, 65535, 10, 0, 35, 10, 0, 65535, 11, 0, 35, 11, 0, 65535, 12, 0, 35, 12, 0, 65535, 13, 0, 35, 13, 0, 65535, 14, 0, 35, 14, 0, 65535, 15, 0, 35, 15, 0, 65535, 16, 0, 35, 16, 0, 65535, 17, 0, 35, 17, 0, 65535, 18, 0, 35, 18, 0, 65535, 19, 0, 35, 19, 0, 65535, 20, 0, 35, 20, 0, 65535, 21, 0, 35, 21, 0, 65535, 22, 0, 35, 22, 0, 65535, 23, 0, 35, 23, 0, 65535, 24, 0, 35, 24, 0, 65535, 25, 0, 35, 25, 0, 65535, 26, 0, 35, 26, 0, 65535, 27, 0, 35, 27, 0, 65535, 28, 0, 35, 28, 0, 65535, 29, 0, 35, 29, 0, 65535, 30, 0, 35, 30, 0, 65535, 31, 0, 35, 31, 0, 65535, 32, 0, 35, 32, 0, 65535, 33, 0, 35, 33, 0, 65535, 34, 0, 35, 34, 0, 65535, 35, 0, 35, 35, 0, 65535, 36, 0, 35, 36, 0, 65535, 37, 0, 35, 37, 0, 65535, 38, 0, 35, 38, 0, 65535, 39, 0, 35, 39, 0, 65535, 40, 0, 35, 40, 0, 65535, 41, 0, 35, 41, 0, 65535, 42, 0, 35, 42, 0, 65535, 43, 0, 35, 43, 0, 65535, 44, 0, 35, 44, 0, 65535, 45, 0, 35, 45, 0, 65535, 46, 0, 35, 46, 0, 65535, 47, 0, 35, 47, 0, 65535, 48, 0, 35, 48, 0, 65535, 49, 0, 35, 49, 0, 65535, 50, 0, 35, 50, 0, 65535, 51, 0, 35, 51, 0, 65535, 52, 0, 35, 52, 0, 65535, 53, 0, 35, 53, 0, 65535, 54, 0, 35, 54, 0, 65535, 55, 0, 35, 55, 0, 65535, 56, 0, 35, 56, 0, 65535, 57, 0, 35, 57, 0, 65535, 58, 0, 35, 58, 0, 65535, 59, 0, 35, 59, 0, 65535, 60, 0, 35, 60, 0, 65535, 61, 0, 35, 61, 0, 65535, 62, 0, 35, 62, 0, 22, 11, 15, 23, 11, 12, 24, 11, 15, 22, 12, 12, 23, 12, 12, 24, 12, 12, 22, 13, 15, 23, 13, 15, 24, 13, 12, 23, 15, 15, 24, 15, 11, 25, 15, 11, 26, 15, 11, 23, 16, 11, 24, 16, 11, 25, 16, 11, 26, 16, 11, 23, 17, 11, 24, 17, 11, 25, 17, 11, 26, 17, 11, 23, 18, 15, 24, 18, 11, 25, 18, 11, 26, 18, 15, 6, 14, 15, 7, 14, 15, 8, 14, 11, 9, 14, 15, 6, 15, 11, 7, 15, 11, 8, 15, 11, 9, 15, 11, 6, 16, 11, 7, 16, 11, 8, 16, 11, 9, 16, 11, 6, 17, 11, 7, 17, 11, 8, 17, 11, 9, 17, 11, 17, 20, 15, 18, 20, 11, 19, 20, 11, 20, 20, 15, 17, 21, 15, 18, 21, 11, 19, 21, 11, 20, 21, 11, 17, 22, 11, 18, 22, 11, 19, 22, 15, 20, 22, 11, 7, 6, 11, 8, 6, 11, 9, 6, 11, 10, 6, 11, 7, 7, 11, 8, 7, 11, 9, 7, 11, 10, 7, 11, 7, 8, 15, 8, 8, 11, 9, 8, 11, 10, 8, 11, 16, 14, 15, 17, 14, 11, 18, 14, 15, 16, 15, 11, 17, 15, 11, 18, 15, 15, 16, 16, 11, 17, 16, 11, 18, 16, 11, 16, 17, 15, 17, 17, 15, 18, 17, 11, 28, 2, 11, 29, 2, 11, 30, 2, 11, 31, 2, 11, 28, 3, 11, 29, 3, 11, 30, 3, 11, 31, 3, 11, 28, 4, 15, 29, 4, 11, 30, 4, 15, 31, 4, 11, 1, 17, 11, 2, 17, 15, 3, 17, 11, 4, 17, 11, 1, 18, 11, 2, 18, 11, 3, 18, 11, 4, 18, 11, 1, 19, 11, 2, 19, 15, 3, 19, 11, 4, 19, 15, 2, 12, 11, 3, 12, 11, 4, 12, 15, 2, 13, 11, 3, 13, 11, 4, 13, 11, 2, 14, 15, 3, 14, 11, 4, 14, 15, 20, 7, 15, 21, 7, 11, 22, 7, 11, 20, 8, 11, 21, 8, 11, 22, 8, 11, 20, 9, 11, 21, 9, 11, 22, 9, 15, 28, 8, 15, 29, 8, 11, 30, 8, 11, 28, 9, 11, 29, 9, 11, 30, 9, 11, 28, 10, 15, 29, 10, 11, 30, 10, 11, 10, 21, 15, 11, 21, 8, 12, 21, 15, 10, 22, 8, 11, 22, 8, 12, 22, 8, 10, 23, 15, 11, 23, 8, 12, 23, 15, 2, 32, 7, 3, 32, 7, 4, 32, 7, 2, 33, 7, 3, 33, 7, 4, 33, 15, 2, 34, 15, 3, 34, 7, 4, 34, 7, 19, 24, 15, 20, 24, 7, 21, 24, 7, 22, 24, 7, 19, 25, 7, 20, 25, 7, 21, 25, 7, 22, 25, 7, 19, 26, 7, 20, 26, 7, 21, 26, 7, 22, 26, 7, 19, 27, 15, 20, 27, 7, 21, 27, 7, 22, 27, 15, 18, 30, 7, 19, 30, 15, 20, 30, 7, 21, 30, 7, 18, 31, 7, 19, 31, 7, 20, 31, 7, 21, 31, 7, 18, 32, 7, 19, 32, 7, 20, 32, 7, 21, 32, 7, 18, 33, 15, 19, 33, 7, 20, 33, 7, 21, 33, 7, 8, 25, 15, 9, 25, 7, 10, 25, 15, 11, 25, 7, 8, 26, 7, 9, 26, 7, 10, 26, 7, 11, 26, 7, 8, 27, 7, 9, 27, 7, 10, 27, 7, 11, 27, 7, 17, 36, 15, 18, 36, 15, 19, 36, 7, 17, 37, 7, 18, 37, 7, 19, 37, 7, 17, 38, 15, 18, 38, 7, 19, 38, 7, 26, 29, 15, 27, 29, 7, 28, 29, 7, 26, 30, 7, 27, 30, 7, 28, 30, 7, 26, 31, 7, 27, 31, 7, 28, 31, 7, 26, 32, 7, 27, 32, 7, 28, 32, 15, 30, 37, 7, 31, 37, 7, 32, 37, 15, 30, 38, 7, 31, 38, 7, 32, 38, 7, 30, 39, 15, 31, 39, 7, 32, 39, 7, 4, 39, 7, 5, 39, 7, 6, 39, 7, 7, 39, 15, 4, 40, 7, 5, 40, 7, 6, 40, 7, 7, 40, 7, 4, 41, 7, 5, 41, 7, 6, 41, 7, 7, 41, 7, 4, 42, 15, 5, 42, 7, 6, 42, 7, 7, 42, 7, 7, 33, 15, 8, 33, 7, 9, 33, 7, 7, 34, 7, 8, 34, 7, 9, 34, 7, 7, 35, 7, 8, 35, 7, 9, 35, 7, 7, 36, 7, 8, 36, 7, 9, 36, 15, 9, 39, 15, 10, 39, 7, 11, 39, 7, 12, 39, 7, 9, 40, 7, 10, 40, 7, 11, 40, 7, 12, 40, 15, 9, 41, 7, 10, 41, 7, 11, 41, 7, 12, 41, 7, 9, 42, 15, 10, 42, 7, 11, 42, 7, 12, 42, 7, 17, 47, 5, 18, 47, 5, 19, 47, 5, 20, 47, 5, 17, 48, 5, 18, 48, 5, 19, 48, 5, 20, 48, 5, 17, 49, 5, 18, 49, 5, 19, 49, 5, 20, 49, 5, 17, 50, 5, 18, 50, 5, 19, 50, 15, 20, 50, 5, 28, 47, 3, 29, 47, 15, 30, 47, 3, 28, 48, 3, 29, 48, 3, 30, 48, 3, 28, 49, 15, 29, 49, 3, 30, 49, 3, 28, 50, 3, 29, 50, 3, 30, 50, 15, 18, 55, 15, 19, 55, 3, 20, 55, 3, 21, 55, 15, 18, 56, 3, 19, 56, 3, 20, 56, 3, 21, 56, 3, 18, 57, 3, 19, 57, 3, 20, 57, 3, 21, 57, 3, 18, 58, 3, 19, 58, 3, 20, 58, 3, 21, 58, 3, 9, 45, 15, 10, 45, 3, 11, 45, 3, 12, 45, 3, 9, 46, 3, 10, 46, 3, 11, 46, 3, 12, 46, 3, 9, 47, 3, 10, 47, 3, 11, 47, 3, 12, 47, 15, 7, 52, 15, 8, 52, 3, 9, 52, 3, 10, 52, 15, 7, 53, 3, 8, 53, 3, 9, 53, 3, 10, 53, 3, 7, 54, 3, 8, 54, 3, 9, 54, 3, 10, 54, 3, 7, 55, 3, 8, 55, 3, 9, 55, 15, 10, 55, 3, 13, 54, 15, 14, 54, 3, 15, 54, 15, 13, 55, 3, 14, 55, 3, 15, 55, 15, 13, 56, 3, 14, 56, 3, 15, 56, 3, 18, 41, 15, 19, 41, 3, 20, 41, 3, 21, 41, 3, 18, 42, 3, 19, 42, 3, 20, 42, 3, 21, 42, 3, 18, 43, 3, 19, 43, 3, 20, 43, 3, 21, 43, 15, 18, 44, 3, 19, 44, 3, 20, 44, 3, 21, 44, 3, 29, 41, 3, 30, 41, 15, 31, 41, 3, 32, 41, 3, 29, 42, 3, 30, 42, 3, 31, 42, 3, 32, 42, 3, 29, 43, 15, 30, 43, 3, 31, 43, 15, 32, 43, 3, 23, 49, 3, 24, 49, 15, 25, 49, 15, 23, 50, 15, 24, 50, 3, 25, 50, 3, 23, 51, 15, 24, 51, 3, 25, 51, 3, 23, 53, 15, 24, 53, 3, 25, 53, 3, 26, 53, 3, 23, 54, 3, 24, 54, 3, 25, 54, 3, 26, 54, 3, 23, 55, 15, 24, 55, 3, 25, 55, 3, 26, 55, 3, 23, 56, 3, 24, 56, 3, 25, 56, 3, 26, 56, 3, 4, 47, 15, 5, 47, 3, 6, 47, 3, 7, 47, 3, 4, 48, 3, 5, 48, 3, 6, 48, 3, 7, 48, 3, 4, 49, 3, 5, 49, 3, 6, 49, 3, 7, 49, 3, 4, 50, 15, 5, 50, 3, 6, 50, 3, 7, 50, 3, 14, 40, 15, 15, 40, 4, 16, 40, 15, 14, 41, 4, 15, 41, 4, 16, 41, 15, 14, 42, 4, 15, 42, 4, 16, 42, 15, 30, 19, 15, 31, 19, 9, 32, 19, 9, 30, 20, 9, 31, 20, 9, 32, 20, 9, 30, 21, 9, 31, 21, 9, 32, 21, 9, 30, 30, 10, 31, 30, 10, 32, 30, 10, 33, 30, 10, 30, 31, 10, 31, 31, 10, 32, 31, 10, 33, 31, 10, 30, 32, 10, 31, 32, 10, 32, 32, 10, 33, 32, 10, 30, 33, 10, 31, 33, 10, 32, 33, 15, 33, 33, 10, 2, 23, 15, 3, 23, 13, 4, 23, 15, 2, 24, 13, 3, 24, 13, 4, 24, 13, 2, 25, 13, 3, 25, 13, 4, 25, 15, 15, 3, 16, 16, 3, 16, 17, 3, 16, 18, 3, 16, 15, 4, 16, 16, 4, 16, 17, 4, 16, 18, 4, 16, 15, 5, 16, 16, 5, 16, 17, 5, 16, 18, 5, 16, 15, 6, 16, 16, 6, 16, 17, 6, 15, 18, 6, 16, 12, 49, 15, 13, 49, 3, 14, 49, 3, 12, 50, 3, 13, 50, 3, 14, 50, 3, 12, 51, 3, 13, 51, 3, 14, 51, 3, 12, 52, 15, 13, 52, 15, 14, 52, 3, 31, 52, 15, 32, 52, 3, 33, 52, 3, 31, 53, 3, 32, 53, 3, 33, 53, 3, 31, 54, 15, 32, 54, 3, 33, 54, 3, 24, 43, 15, 25, 43, 3, 26, 43, 15, 24, 44, 3, 25, 44, 3, 26, 44, 3, 24, 45, 15, 25, 45, 3, 26, 45, 3, 2, 52, 15, 3, 52, 3, 4, 52, 15, 5, 52, 15, 2, 53, 3, 3, 53, 3, 4, 53, 3, 5, 53, 3, 2, 54, 3, 3, 54, 3, 4, 54, 3, 5, 54, 3, 2, 55, 3, 3, 55, 3, 4, 55, 3, 5, 55, 3, 8, 59, 2, 9, 59, 15, 10, 59, 2, 11, 59, 2, 8, 60, 2, 9, 60, 2, 10, 60, 2, 11, 60, 2, 8, 61, 2, 9, 61, 2, 10, 61, 2, 11, 61, 2, 22, 10, 14, 23, 14, 14, 24, 10, 14, 25, 10, 14, 26, 10, 14, 27, 10, 14, 22, 14, 14, 21, 14, 14, 20, 14, 14, 19, 14, 14, 27, 18, 14, 28, 18, 14, 29, 18, 14, 30, 18, 14, 22, 15, 14, 21, 15, 14, 20, 15, 14, 19, 15, 14, 23, 19, 14, 23, 20, 14, 22, 20, 14, 21, 20, 14, 5, 14, 14, 7, 13, 14, 7, 12, 14, 7, 11, 14, 7, 10, 14, 7, 9, 14, 10, 14, 14, 11, 14, 14, 12, 14, 14, 13, 14, 14, 14, 14, 14, 15, 14, 14, 17, 19, 14, 17, 18, 14, 19, 23, 14, 16, 21, 14, 15, 21, 14, 14, 21, 14, 13, 21, 14, 6, 12, 14, 5, 12, 14, 16, 18, 14, 16, 19, 14, 16, 20, 14, 28, 5, 14, 28, 6, 14, 28, 7, 14, 30, 5, 14, 30, 6, 14, 30, 7, 14, 31, 7, 14, 31, 8, 14, 31, 9, 14, 31, 10, 14, 31, 11, 14, 31, 12, 14, 31, 13, 14, 31, 14, 14, 31, 15, 14, 31, 16, 14, 31, 17, 14, 31, 18, 14, 2, 20, 14, 2, 21, 14, 2, 22, 14, 2, 16, 14, 2, 15, 14, 5, 19, 14, 6, 19, 14, 7, 19, 14, 8, 19, 14, 9, 19, 14, 10, 19, 14, 10, 20, 14, 19, 7, 14, 18, 7, 14, 17, 7, 14, 10, 24, 14, 9, 23, 14, 8, 23, 14, 7, 23, 14, 6, 23, 14, 5, 23, 14, 13, 23, 14, 14, 23, 14, 15, 23, 14, 16, 23, 14, 17, 23, 14, 18, 23, 14, 5, 33, 14, 6, 33, 14, 2, 35, 14, 2, 36, 14, 2, 37, 14, 2, 38, 14, 2, 39, 14, 2, 40, 14, 2, 41, 14, 2, 42, 14, 2, 43, 14, 2, 44, 14, 2, 45, 14, 2, 46, 14, 2, 47, 14, 2, 48, 14, 2, 49, 14, 2, 50, 14, 2, 51, 14, 19, 28, 14, 19, 29, 14, 23, 27, 14, 24, 27, 14, 25, 27, 14, 26, 27, 14, 26, 28, 14, 18, 34, 14, 18, 35, 14, 7, 25, 14, 6, 25, 14, 5, 25, 14, 17, 39, 14, 17, 40, 14, 16, 36, 14, 15, 36, 14, 14, 36, 14, 13, 36, 14, 12, 36, 14, 11, 36, 14, 10, 36, 14, 29, 32, 14, 29, 33, 14, 29, 34, 14, 30, 34, 14, 31, 34, 14, 32, 34, 14, 30, 40, 14, 32, 36, 14, 32, 35, 14, 8, 39, 14, 4, 43, 14, 4, 44, 14, 4, 45, 14, 4, 46, 14, 3, 47, 14, 3, 48, 14, 3, 49, 14, 3, 50, 14, 4, 51, 14, 9, 37, 14, 9, 38, 14, 13, 40, 14, 9, 43, 14, 9, 44, 14, 19, 51, 14, 20, 51, 14, 21, 51, 14, 21, 50, 14, 22, 50, 14, 19, 52, 14, 19, 53, 14, 19, 54, 14, 18, 54, 14, 17, 54, 14, 16, 54, 14, 18, 51, 14, 17, 51, 14, 16, 51, 14, 16, 50, 14, 16, 49, 14, 16, 48, 14, 16, 47, 14, 16, 46, 14, 16, 45, 14, 16, 44, 14, 16, 43, 14, 27, 49, 14, 26, 49, 14, 31, 50, 14, 31, 51, 14, 29, 46, 14, 29, 45, 14, 29, 44, 14, 17, 55, 14, 16, 55, 14, 22, 55, 14, 12, 48, 14, 11, 52, 14, 6, 52, 14, 9, 56, 14, 9, 57, 14, 9, 58, 14, 13, 53, 14, 17, 41, 14, 22, 43, 14, 23, 43, 14, 28, 43, 14, 27, 43, 14, 31, 44, 14, 31, 45, 14, 31, 46, 14, 31, 47, 14, 31, 48, 14, 31, 49, 14, 23, 52, 14, 24, 48, 14, 24, 47, 14, 24, 46, 14, 31, 55, 14, 31, 56, 14, 31, 57, 14, 31, 58, 14, 31, 59, 14, 30, 59, 14, 29, 59, 14, 28, 59, 14, 27, 59, 14, 26, 59, 14, 25, 59, 14, 24, 59, 14, 23, 59, 14, 22, 59, 14, 21, 59, 14, 20, 59, 14, 19, 59, 14, 18, 59, 14, 17, 59, 14, 16, 59, 14, 15, 59, 14, 14, 59, 14, 13, 59, 14, 12, 59, 14, 12, 58, 14, 11, 58, 14, 10, 58, 14)
+}
+
+[node name="PositionTester" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.301224, 0, 60.38779)
+
+[node name="RoomMesh" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.186497, 0)
+script = ExtResource("5_op55s")
+build_speed = 0.01
+grid_map_path = NodePath("../GridMap")
+corridor_scene = ExtResource("6_xff22")
+room_types = Array[ExtResource("2_xff22")]([ExtResource("7_xff22"), ExtResource("3_g36r2"), ExtResource("10_r0e0f"), ExtResource("6_0c1fc"), ExtResource("7_ce4hr"), ExtResource("5_wyj30"), ExtResource("9_mq1ln"), ExtResource("10_le0gi"), ExtResource("8_ohi08"), ExtResource("6_aienv"), ExtResource("13_han6o"), ExtResource("14_nkm63"), ExtResource("12_opigg")])
+
+[node name="Node3D" type="Node3D" parent="RoomMesh" instance=ExtResource("11_0tstp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.875, 0, 48.8125)
+
+[node name="@Node3D@434908" type="Node3D" parent="RoomMesh" instance=ExtResource("13_3u6ko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.875, 0, 31.8125)
+
+[node name="@Node3D@434909" type="Node3D" parent="RoomMesh" instance=ExtResource("16_a58hv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.875, 0, 4.8125)
+
+[node name="@Node3D@434910" type="Node3D" parent="RoomMesh" instance=ExtResource("9_op55s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.916667, 0, 60.5)
+
+[node name="RoomCell" type="Node3D" parent="RoomMesh" instance=ExtResource("23_nkm63")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 23.5, 0, 11.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434911" type="Node3D" parent="RoomMesh" instance=ExtResource("23_nkm63")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 22.5, 0, 12.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434912" type="Node3D" parent="RoomMesh" instance=ExtResource("23_nkm63")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 23.5, 0, 12.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434913" type="Node3D" parent="RoomMesh" instance=ExtResource("23_nkm63")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 12.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434914" type="Node3D" parent="RoomMesh" instance=ExtResource("23_nkm63")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 13.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434915" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 15.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434916" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 25.5, 0, 15.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434917" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 26.5, 0, 15.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434918" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 23.5, 0, 16.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434919" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 16.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434920" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 25.5, 0, 16.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434921" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 26.5, 0, 16.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434922" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 23.5, 0, 17.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434923" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 17.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434924" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 25.5, 0, 17.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434925" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 26.5, 0, 17.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434926" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 18.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434927" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 25.5, 0, 18.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434928" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434929" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 15.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434930" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 15.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434931" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 15.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434932" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 15.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434933" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 16.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434934" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 16.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434935" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 16.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434936" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 16.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434937" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 17.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434938" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 17.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434939" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 17.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434940" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 17.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434941" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 20.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434942" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 20.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434943" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 21.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434944" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 21.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434945" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 21.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434946" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 22.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434947" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 22.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434948" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 22.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434949" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 6.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434950" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 6.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434951" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 6.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434952" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 6.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434953" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 7.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434954" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 7.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434955" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 7.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434956" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 7.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434957" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 8.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434958" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 8.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434959" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 8.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434960" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434961" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 15.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434962" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 15.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434963" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 16.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434964" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 16.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434965" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 16.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434966" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 17.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434967" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 28.5, 0, 2.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434968" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 29.5, 0, 2.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434969" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 2.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434970" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 2.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434971" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 28.5, 0, 3.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434972" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 29.5, 0, 3.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434973" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 3.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434974" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 3.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434975" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 29.5, 0, 4.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434976" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 4.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434977" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 1.5, 0, 17.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434978" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 17.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434979" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 17.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434980" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 1.5, 0, 18.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434981" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 18.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434982" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 18.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434983" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 18.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434984" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 1.5, 0, 19.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434985" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 19.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434986" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 12.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434987" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 12.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434988" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 13.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434989" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 13.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434990" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 13.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434991" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434992" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 7.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434993" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 22.5, 0, 7.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434994" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 8.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434995" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 8.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434996" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 22.5, 0, 8.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434997" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 9.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434998" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 9.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@434999" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 29.5, 0, 8.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435000" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 8.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435001" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 28.5, 0, 9.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435002" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 29.5, 0, 9.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435003" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 9.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435004" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 29.5, 0, 10.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435005" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 10.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435006" type="Node3D" parent="RoomMesh" instance=ExtResource("26_0pvfg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 21.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435007" type="Node3D" parent="RoomMesh" instance=ExtResource("26_0pvfg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 22.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435008" type="Node3D" parent="RoomMesh" instance=ExtResource("26_0pvfg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 22.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435009" type="Node3D" parent="RoomMesh" instance=ExtResource("26_0pvfg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 22.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435010" type="Node3D" parent="RoomMesh" instance=ExtResource("26_0pvfg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 23.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435011" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 32.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435012" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 32.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435013" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 32.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435014" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 33.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435015" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 33.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435016" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 34.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435017" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 34.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435018" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 24.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435019" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 24.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435020" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 22.5, 0, 24.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435021" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 25.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435022" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 25.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435023" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 25.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435024" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 22.5, 0, 25.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435025" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 26.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435026" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 26.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435027" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 26.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435028" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 22.5, 0, 26.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435029" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 27.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435030" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 27.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435031" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 30.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435032" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 30.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435033" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 30.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435034" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 31.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435035" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 31.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435036" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 31.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435037" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 31.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435038" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 32.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435039" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 32.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435040" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 32.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435041" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 32.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435042" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 33.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435043" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 33.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435044" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 33.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435045" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 25.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435046" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 25.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435047" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 26.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435048" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 26.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435049" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 26.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435050" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 26.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435051" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 27.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435052" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 27.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435053" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 27.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435054" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 27.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435055" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 36.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435056" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 37.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435057" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 37.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435058" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 37.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435059" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 38.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435060" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 38.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435061" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 27.5, 0, 29.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435062" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 28.5, 0, 29.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435063" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 26.5, 0, 30.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435064" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 27.5, 0, 30.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435065" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 28.5, 0, 30.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435066" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 26.5, 0, 31.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435067" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 27.5, 0, 31.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435068" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 28.5, 0, 31.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435069" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 26.5, 0, 32.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435070" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 27.5, 0, 32.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435071" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 37.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435072" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 37.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435073" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 38.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435074" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 38.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435075" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 32.5, 0, 38.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435076" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 39.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435077" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 32.5, 0, 39.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435078" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 39.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435079" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 39.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435080" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 39.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435081" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 40.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435082" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 40.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435083" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 40.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435084" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 40.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435085" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 41.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435086" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 41.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435087" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 41.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435088" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 41.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435089" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 42.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435090" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 42.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435091" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 42.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435092" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 33.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435093" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 33.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435094" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 34.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435095" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 34.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435096" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 34.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435097" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 35.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435098" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 35.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435099" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 35.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435100" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 36.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435101" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 36.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435102" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 39.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435103" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 39.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435104" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 39.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435105" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 40.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435106" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 40.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435107" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 40.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435108" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 41.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435109" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 41.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435110" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 41.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435111" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 41.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435112" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 42.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435113" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 42.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435114" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 42.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435115" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 28.5, 0, 47.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435116" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 47.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435117" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 28.5, 0, 48.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435118" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 29.5, 0, 48.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435119" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 48.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435120" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 29.5, 0, 49.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435121" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 49.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435122" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 28.5, 0, 50.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435123" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 29.5, 0, 50.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435124" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435125" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435126" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 56.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435127" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 56.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435128" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 56.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435129" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 56.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435130" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 57.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435131" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 57.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435132" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 57.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435133" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 57.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435134" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 58.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435135" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 58.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435136" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 58.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435137" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 58.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435138" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 45.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435139" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 45.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435140" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 45.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435141" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 46.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435142" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 46.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435143" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 46.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435144" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 46.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435145" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 47.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435146" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 47.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435147" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 47.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435148" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 52.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435149" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 52.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435150" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 53.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435151" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 53.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435152" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 53.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435153" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 53.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435154" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 54.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435155" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 54.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435156" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 54.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435157" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 54.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435158" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435159" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435160" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435161" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 54.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435162" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435163" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435164" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 56.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435165" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 56.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435166" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 56.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435167" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 41.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435168" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 41.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435169" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 41.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435170" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 42.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435171" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 42.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435172" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 42.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435173" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 42.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435174" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 43.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435175" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 43.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435176" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 43.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435177" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 44.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435178" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 44.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435179" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 44.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435180" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 44.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435181" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 29.5, 0, 41.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435182" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 41.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435183" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 32.5, 0, 41.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435184" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 29.5, 0, 42.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435185" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 42.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435186" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 42.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435187" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 32.5, 0, 42.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435188" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 43.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435189" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 32.5, 0, 43.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435190" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 23.5, 0, 49.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435191" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 50.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435192" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 25.5, 0, 50.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435193" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 51.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435194" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 25.5, 0, 51.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435195" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 53.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435196" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 25.5, 0, 53.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435197" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 26.5, 0, 53.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435198" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 23.5, 0, 54.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435199" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 54.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435200" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 25.5, 0, 54.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435201" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 26.5, 0, 54.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435202" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435203" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 25.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435204" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 26.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435205" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 23.5, 0, 56.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435206" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 56.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435207" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 25.5, 0, 56.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435208" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 26.5, 0, 56.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435209" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 47.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435210" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 47.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435211" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 47.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435212" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 48.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435213" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 48.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435214" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 48.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435215" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 48.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435216" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 49.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435217" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 49.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435218" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 49.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435219" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 49.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435220" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 50.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435221" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 50.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435222" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 50.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435223" type="Node3D" parent="RoomMesh" instance=ExtResource("18_kfy22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 40.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435224" type="Node3D" parent="RoomMesh" instance=ExtResource("18_kfy22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 41.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435225" type="Node3D" parent="RoomMesh" instance=ExtResource("18_kfy22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 41.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435226" type="Node3D" parent="RoomMesh" instance=ExtResource("18_kfy22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 42.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435227" type="Node3D" parent="RoomMesh" instance=ExtResource("18_kfy22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 42.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435228" type="Node3D" parent="RoomMesh" instance=ExtResource("30_srrfd")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 19.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435229" type="Node3D" parent="RoomMesh" instance=ExtResource("30_srrfd")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 32.5, 0, 19.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435230" type="Node3D" parent="RoomMesh" instance=ExtResource("30_srrfd")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 20.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435231" type="Node3D" parent="RoomMesh" instance=ExtResource("30_srrfd")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 20.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435232" type="Node3D" parent="RoomMesh" instance=ExtResource("30_srrfd")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 32.5, 0, 20.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435233" type="Node3D" parent="RoomMesh" instance=ExtResource("30_srrfd")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 21.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435234" type="Node3D" parent="RoomMesh" instance=ExtResource("30_srrfd")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 21.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435235" type="Node3D" parent="RoomMesh" instance=ExtResource("30_srrfd")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 32.5, 0, 21.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435236" type="Node3D" parent="RoomMesh" instance=ExtResource("31_ilmjp")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 23.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435237" type="Node3D" parent="RoomMesh" instance=ExtResource("31_ilmjp")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 24.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435238" type="Node3D" parent="RoomMesh" instance=ExtResource("31_ilmjp")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 24.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435239" type="Node3D" parent="RoomMesh" instance=ExtResource("31_ilmjp")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 24.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435240" type="Node3D" parent="RoomMesh" instance=ExtResource("31_ilmjp")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 25.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435241" type="Node3D" parent="RoomMesh" instance=ExtResource("31_ilmjp")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 25.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435242" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 49.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435243" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 49.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435244" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 50.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435245" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 50.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435246" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 50.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435247" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 51.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435248" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 51.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435249" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 51.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435250" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 52.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435251" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 32.5, 0, 52.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435252" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 33.5, 0, 52.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435253" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 53.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435254" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 32.5, 0, 53.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435255" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 33.5, 0, 53.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435256" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 32.5, 0, 54.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435257" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 33.5, 0, 54.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435258" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 25.5, 0, 43.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435259" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 44.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435260" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 25.5, 0, 44.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435261" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 26.5, 0, 44.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435262" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 25.5, 0, 45.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435263" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 26.5, 0, 45.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435264" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 52.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435265" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 53.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435266" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 53.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435267" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 53.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435268" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 53.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435269" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 54.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435270" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 54.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435271" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 54.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435272" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 54.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435273" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435274" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435275" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435276" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435277" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 22.5, 0, 10.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435278" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 23.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435279" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 10.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435280" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 25.5, 0, 10.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435281" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 26.5, 0, 10.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435282" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 27.5, 0, 10.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435283" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 22.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435284" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435285" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435286" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435287" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 27.5, 0, 18.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435288" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 28.5, 0, 18.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435289" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 29.5, 0, 18.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435290" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 18.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435291" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 22.5, 0, 15.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435292" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 15.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435293" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 15.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435294" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 15.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435295" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 23.5, 0, 19.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435296" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 23.5, 0, 20.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435297" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 22.5, 0, 20.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435298" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 20.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435299" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435300" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 13.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435301" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 12.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435302" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 11.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435303" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 10.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435304" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 9.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435305" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435306" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435307" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435308" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435309" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435310" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435311" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 19.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435312" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 18.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435313" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 23.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435314" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 21.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435315" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 21.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435316" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 21.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435317" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 21.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435318" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 12.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435319" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 12.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435320" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 18.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435321" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 19.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435322" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 20.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435323" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 28.5, 0, 5.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435324" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 28.5, 0, 6.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435325" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 28.5, 0, 7.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435326" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 5.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435327" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 6.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435328" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 7.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435329" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 7.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435330" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 8.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435331" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 9.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435332" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 10.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435333" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 11.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435334" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 12.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435335" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 13.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435336" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435337" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 15.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435338" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 16.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435339" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 17.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435340" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 18.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435341" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 20.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435342" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 21.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435343" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 22.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435344" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 16.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435345" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 15.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435346" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 19.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435347" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 19.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435348" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 19.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435349" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 19.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435350" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 19.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435351" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 19.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435352" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 20.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435353" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 7.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435354" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 7.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435355" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 7.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435356" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 24.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435357" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 23.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435358" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 23.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435359" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 23.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435360" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 23.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435361" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 23.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435362" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 23.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435363" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 23.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435364" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 23.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435365" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 23.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435366" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 23.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435367" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 23.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435368" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 33.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435369" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 33.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435370" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 35.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435371" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 36.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435372" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 37.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435373" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 38.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435374" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 39.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435375" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 40.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435376" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 41.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435377" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 42.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435378" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 43.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435379" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 44.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435380" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 45.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435381" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 46.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435382" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 47.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435383" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 48.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435384" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 49.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435385" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 50.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435386" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 51.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435387" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 28.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435388" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 29.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435389" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 23.5, 0, 27.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435390" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 27.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435391" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 25.5, 0, 27.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435392" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 26.5, 0, 27.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435393" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 26.5, 0, 28.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435394" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 34.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435395" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 35.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435396" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 25.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435397" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 25.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435398" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 25.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435399" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 39.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435400" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 40.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435401" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 36.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435402" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 36.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435403" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 36.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435404" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 36.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435405" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 36.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435406" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 36.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435407" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 36.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435408" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 29.5, 0, 32.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435409" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 29.5, 0, 33.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435410" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 29.5, 0, 34.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435411" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 34.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435412" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 34.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435413" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 32.5, 0, 34.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435414" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 40.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435415" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 32.5, 0, 36.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435416" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 32.5, 0, 35.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435417" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 39.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435418" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 43.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435419" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 44.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435420" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 45.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435421" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 46.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435422" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 47.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435423" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 48.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435424" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 49.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435425" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 50.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435426" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 51.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435427" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 37.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435428" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 38.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435429" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 40.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435430" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 43.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435431" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 44.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435432" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 51.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435433" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 51.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435434" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 51.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435435" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 50.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435436" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 22.5, 0, 50.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435437" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 52.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435438" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 53.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435439" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 54.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435440" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 54.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435441" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 54.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435442" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 54.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435443" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 51.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435444" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 51.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435445" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 51.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435446" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 50.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435447" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 49.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435448" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 48.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435449" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 47.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435450" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 46.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435451" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 45.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435452" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 44.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435453" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 43.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435454" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 27.5, 0, 49.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435455" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 26.5, 0, 49.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435456" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 50.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435457" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 51.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435458" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 29.5, 0, 46.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435459" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 29.5, 0, 45.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435460" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 29.5, 0, 44.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435461" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435462" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435463" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 22.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435464" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 48.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435465" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 52.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435466" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 52.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435467" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 56.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435468" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 57.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435469" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 58.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435470" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 53.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435471" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 41.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435472" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 22.5, 0, 43.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435473" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 23.5, 0, 43.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435474" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 28.5, 0, 43.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435475" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 27.5, 0, 43.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435476" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 44.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435477" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 45.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435478" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 46.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435479" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 47.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435480" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 48.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435481" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 49.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435482" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 23.5, 0, 52.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435483" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 48.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435484" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 47.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435485" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 46.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435486" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435487" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 56.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435488" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 57.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435489" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 58.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435490" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 59.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435491" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 59.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435492" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 29.5, 0, 59.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435493" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 28.5, 0, 59.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435494" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 27.5, 0, 59.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435495" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 26.5, 0, 59.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435496" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 25.5, 0, 59.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435497" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 59.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435498" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 23.5, 0, 59.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435499" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 22.5, 0, 59.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435500" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 59.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435501" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 59.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435502" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 59.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435503" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 59.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435504" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 59.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435505" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 59.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435506" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 59.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435507" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 59.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435508" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 59.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435509" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 59.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435510" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 58.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435511" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 58.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435512" type="Node3D" parent="RoomMesh" instance=ExtResource("6_xff22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 58.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435513" type="Node3D" parent="RoomMesh" instance=ExtResource("23_nkm63")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 22.5, 0, 11.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435514" type="Node3D" parent="RoomMesh" instance=ExtResource("23_nkm63")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 11.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434911" type="Node3D" parent="RoomMesh" instance=ExtResource("23_nkm63")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 22.5, 0, 13.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434912" type="Node3D" parent="RoomMesh" instance=ExtResource("23_nkm63")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 23.5, 0, 13.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434915" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 23.5, 0, 15.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434922" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 23.5, 0, 18.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434925" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 26.5, 0, 18.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434929" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434928" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435515" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434941" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 20.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434942" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 20.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434943" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 21.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434944" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 22.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434953" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 8.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434960" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435516" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434962" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 15.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434963" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 17.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434964" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 17.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434971" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 28.5, 0, 4.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434973" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 4.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434977" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 17.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434981" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 19.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434983" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 19.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434987" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 12.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434988" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434990" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 14.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434992" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 20.5, 0, 7.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434996" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 22.5, 0, 9.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_434999" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 28.5, 0, 8.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435001" type="Node3D" parent="RoomMesh" instance=ExtResource("14_emnmg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 28.5, 0, 10.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435006" type="Node3D" parent="RoomMesh" instance=ExtResource("26_0pvfg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 21.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435517" type="Node3D" parent="RoomMesh" instance=ExtResource("26_0pvfg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 21.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435007" type="Node3D" parent="RoomMesh" instance=ExtResource("26_0pvfg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 23.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435009" type="Node3D" parent="RoomMesh" instance=ExtResource("26_0pvfg")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 23.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435013" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 33.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435014" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 34.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435018" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 24.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435025" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 27.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435028" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 22.5, 0, 27.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435031" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 30.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435038" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 33.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435045" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 25.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435518" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 25.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435056" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 36.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435055" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 36.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435519" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 38.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435061" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 26.5, 0, 29.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435068" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 28.5, 0, 32.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435072" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 32.5, 0, 37.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435073" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 39.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435080" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 39.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435085" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 42.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435092" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 33.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435099" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 36.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435102" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 39.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435104" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 40.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435108" type="Node3D" parent="RoomMesh" instance=ExtResource("12_op55s")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 42.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435115" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 29.5, 0, 47.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435117" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 28.5, 0, 49.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435121" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 50.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435124" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435125" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435138" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 45.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435144" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 47.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435148" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 52.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435149" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 52.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435156" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435161" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 54.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435520" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 54.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435163" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435167" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 41.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435173" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 21.5, 0, 43.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435181" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 41.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435184" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 29.5, 0, 43.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435186" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 43.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435190" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 49.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435192" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 25.5, 0, 49.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435521" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 23.5, 0, 50.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435193" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 23.5, 0, 51.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435195" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 23.5, 0, 53.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435198" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 23.5, 0, 55.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435209" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 47.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435216" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 50.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435223" type="Node3D" parent="RoomMesh" instance=ExtResource("18_kfy22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 40.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435522" type="Node3D" parent="RoomMesh" instance=ExtResource("18_kfy22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 40.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435225" type="Node3D" parent="RoomMesh" instance=ExtResource("18_kfy22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 41.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435227" type="Node3D" parent="RoomMesh" instance=ExtResource("18_kfy22")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 42.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435228" type="Node3D" parent="RoomMesh" instance=ExtResource("30_srrfd")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 30.5, 0, 19.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435236" type="Node3D" parent="RoomMesh" instance=ExtResource("31_ilmjp")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 23.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435523" type="Node3D" parent="RoomMesh" instance=ExtResource("31_ilmjp")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 23.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435239" type="Node3D" parent="RoomMesh" instance=ExtResource("31_ilmjp")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 25.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435242" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 49.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435247" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 52.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435248" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 52.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435251" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 52.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435253" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 31.5, 0, 54.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435258" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 43.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435524" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 26.5, 0, 43.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435259" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 24.5, 0, 45.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435264" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 52.5)
+script = ExtResource("8_ce4hr")
+
+[node name="@Node3D@435525" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 52.5)
+script = ExtResource("8_ce4hr")
+
+[node name="_Node3D_435268" type="Node3D" parent="RoomMesh" instance=ExtResource("7_7dir4")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 52.5)
+script = ExtResource("8_ce4hr")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 9.62036, 0.0715464, 37.809196)
+script = SubResource("GDScript_670jf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_g4sdw")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0.707957, -0.444778)
+current = true

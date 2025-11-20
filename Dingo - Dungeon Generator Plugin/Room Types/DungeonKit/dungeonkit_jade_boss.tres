@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="RoomType" load_steps=3 format=3 uid="uid://nup1qdrhj4dr"]
+
+[ext_resource type="Script" uid="uid://dnxnmk7p8ya0s" path="res://Dingo - Dungeon Generator Plugin/Scripts/dingo_room_types.gd" id="1_drm1d"]
+[ext_resource type="PackedScene" uid="uid://cd0xlbllyioe7" path="res://Dingo - Dungeon Generator Plugin/Scenes/Room Scenes/Dungeonkit Scenes/dungeonkit_jade_boss.tscn" id="2_drm1d"]
+
+[resource]
+script = ExtResource("1_drm1d")
+scene_mode = 0
+static_scenes = Array[PackedScene]([ExtResource("2_drm1d")])
+name = "Dungeonkit Stone Standard"
+priority = 1
+room_amount = 1
+recursion = 200
+tile_id = 10
+room_margin = 1
+door_mode = 0
+static_doors = Array[Vector3i]([Vector3i(2, 0, 3)])
+placement_mode = 2
+range_min = Vector3i(0, 0, 17)
+range_max = Vector3i(180, 0, 32)
+size_mode = 1
+min_size = Vector3i(4, 1, 4)
+max_size = Vector3i(4, 1, 4)
+metadata/_custom_type_script = "uid://dnxnmk7p8ya0s"
+metadata/_last_val = [Vector3i(0, 0, 17), Vector3i(180, 0, 32), Vector3i(4, 1, 4), Vector3i(4, 1, 4), 1]
+metadata/_editing = false

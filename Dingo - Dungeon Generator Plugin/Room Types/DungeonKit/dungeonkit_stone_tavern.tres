@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="RoomType" load_steps=3 format=3 uid="uid://bpafdhoeaabih"]
+
+[ext_resource type="PackedScene" uid="uid://bybtqc7fijo2r" path="res://Dingo - Dungeon Generator Plugin/Scenes/Room Scenes/Dungeonkit Scenes/dungeonkit_stone_tavern_scene.tscn" id="1_od3bx"]
+[ext_resource type="Script" uid="uid://dnxnmk7p8ya0s" path="res://Dingo - Dungeon Generator Plugin/Scripts/dingo_room_types.gd" id="2_t4dng"]
+
+[resource]
+script = ExtResource("2_t4dng")
+scene_mode = 1
+dynamic_scenes = Array[PackedScene]([ExtResource("1_od3bx")])
+name = "Dungeonkit Stone Standard"
+priority = 2
+room_amount = 10
+recursion = 200
+tile_id = 3
+room_margin = 1
+door_mode = 1
+placement_mode = 2
+range_min = Vector3i(0, 0, 40)
+range_max = Vector3i(180, 0, 55)
+size_mode = 1
+min_size = Vector3i(3, 1, 3)
+max_size = Vector3i(4, 1, 4)
+metadata/_custom_type_script = "uid://dnxnmk7p8ya0s"
+metadata/_last_val = [Vector3i(0, 0, 40), Vector3i(180, 0, 55), Vector3i(3, 1, 3), Vector3i(4, 1, 4), 1]
+metadata/_editing = false

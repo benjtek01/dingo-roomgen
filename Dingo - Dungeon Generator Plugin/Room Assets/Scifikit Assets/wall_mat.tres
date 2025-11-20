@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c3s4y5toan7ri"]
+
+[ext_resource type="Texture2D" uid="uid://d061idx6tp703" path="res://Dingo - Dungeon Generator Plugin/Room Assets/Scifikit Assets/wall_basecolor.png" id="1_iqy0x"]
+[ext_resource type="Texture2D" uid="uid://c4mw2uqrt3vii" path="res://Dingo - Dungeon Generator Plugin/Room Assets/Scifikit Assets/initialShadingGroup_Normal_OpenGL.png" id="2_lelgx"]
+
+[resource]
+resource_name = "Wall"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.840922, 0.8550797, 0.85789496, 1)
+albedo_texture = ExtResource("1_iqy0x")
+emission_enabled = true
+normal_enabled = true
+normal_texture = ExtResource("2_lelgx")

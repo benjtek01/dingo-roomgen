@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh8m60n5hc1s2"]
+
+[ext_resource type="Material" uid="uid://cuiel4vtlu0l" path="res://Dingo - Dungeon Generator Plugin/Room Assets/Dungeonkit Assets/Assets/Props/fire.tres" id="1_kyo53"]
+[ext_resource type="Material" uid="uid://b0rxwx05guya4" path="res://Dingo - Dungeon Generator Plugin/Room Assets/Dungeonkit Assets/Assets/Props/smoke.tres" id="2_x6p7q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nymwo"]
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_kyo53"]
+material = SubResource("StandardMaterial3D_nymwo")
+
+[node name="fire" type="Node3D"]
+
+[node name="flame" type="GPUParticles3D" parent="."]
+lifetime = 0.2
+speed_scale = 0.3
+collision_base_size = 0.0
+process_material = ExtResource("1_kyo53")
+draw_pass_1 = SubResource("QuadMesh_kyo53")
+
+[node name="smoke" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009664059, -0.032096505, 0)
+lifetime = 0.5
+speed_scale = 0.3
+collision_base_size = 0.0
+process_material = ExtResource("2_x6p7q")
+draw_pass_1 = SubResource("QuadMesh_kyo53")

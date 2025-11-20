@@ -1,0 +1,142 @@
+[gd_scene load_steps=20 format=3 uid="uid://db4qspojebnuf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0mcm"]
+albedo_color = Color(0.19559392, 0.48529452, 0.77976346, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yaxm4"]
+material = SubResource("StandardMaterial3D_x0mcm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_extd2"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jbr3n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dhtuy"]
+albedo_color = Color(0.14115217, 0.9562668, 1.540184e-06, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkgpx"]
+albedo_color = Color(0.9143991, 0.5305628, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yaxm4"]
+albedo_color = Color(0.838814, 0.276374, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7s85i"]
+albedo_color = Color(0.54376, 0.0450312, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b6vl0"]
+albedo_color = Color(0.60012245, 0.3016802, 0.16730788, 1)
+metallic = 1.0
+metallic_specular = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0p5la"]
+albedo_color = Color(0, 0.6819752, 0.41279072, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1w572"]
+albedo_color = Color(0, 0.49476504, 0.38876092, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jxcn4"]
+material = SubResource("StandardMaterial3D_1w572")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8eiy"]
+albedo_color = Color(0.1724619, 0.64953357, 0.8311147, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a12v6"]
+albedo_color = Color(0.89036155, 0.4639747, 0.86184347, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k2hxd"]
+albedo_color = Color(0.7234661, 0.43134242, 0.9861122, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfm85"]
+albedo_color = Color(0.51920116, 0.0775513, 0.8457773, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qpeh8"]
+albedo_color = Color(0.62152386, 0.62152386, 0.6215238, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ot0ue"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qukkj"]
+albedo_color = Color(0.23604867, 0.06353132, 0.45368916, 1)
+
+[node name="Dungeon Tiles" type="Node3D"]
+
+[node name="0" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_yaxm4")
+surface_material_override/0 = SubResource("StandardMaterial3D_extd2")
+
+[node name="1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5001, 0, 0)
+mesh = SubResource("BoxMesh_yaxm4")
+surface_material_override/0 = SubResource("StandardMaterial3D_jbr3n")
+
+[node name="2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.134715, 0, 0)
+mesh = SubResource("BoxMesh_yaxm4")
+surface_material_override/0 = SubResource("StandardMaterial3D_dhtuy")
+
+[node name="3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5718403, 0, 0)
+mesh = SubResource("BoxMesh_yaxm4")
+surface_material_override/0 = SubResource("StandardMaterial3D_vkgpx")
+
+[node name="4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.07244, 0, 0)
+mesh = SubResource("BoxMesh_yaxm4")
+surface_material_override/0 = SubResource("StandardMaterial3D_yaxm4")
+
+[node name="5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.60112, 0, 0)
+mesh = SubResource("BoxMesh_yaxm4")
+surface_material_override/0 = SubResource("StandardMaterial3D_7s85i")
+
+[node name="6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.15934, 0, 0)
+mesh = SubResource("BoxMesh_yaxm4")
+surface_material_override/0 = SubResource("StandardMaterial3D_b6vl0")
+
+[node name="7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.80439, 0, 0)
+mesh = SubResource("BoxMesh_yaxm4")
+surface_material_override/0 = SubResource("StandardMaterial3D_0p5la")
+
+[node name="8" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.500091, 0, 0)
+mesh = SubResource("BoxMesh_jxcn4")
+
+[node name="9" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.006142, 0, 0)
+mesh = SubResource("BoxMesh_yaxm4")
+surface_material_override/0 = SubResource("StandardMaterial3D_h8eiy")
+
+[node name="10" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.521156, 0, 0)
+mesh = SubResource("BoxMesh_yaxm4")
+
+[node name="11" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.936893, 0, 0)
+mesh = SubResource("BoxMesh_yaxm4")
+surface_material_override/0 = SubResource("StandardMaterial3D_a12v6")
+
+[node name="12" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.361025, 0, 0)
+mesh = SubResource("BoxMesh_yaxm4")
+surface_material_override/0 = SubResource("StandardMaterial3D_k2hxd")
+
+[node name="13" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.718468, 0, 0)
+mesh = SubResource("BoxMesh_yaxm4")
+surface_material_override/0 = SubResource("StandardMaterial3D_dfm85")
+
+[node name="14" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.285759, 0, 0)
+mesh = SubResource("BoxMesh_yaxm4")
+surface_material_override/0 = SubResource("StandardMaterial3D_qpeh8")
+
+[node name="15" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.703754, 0, 0)
+mesh = SubResource("BoxMesh_yaxm4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ot0ue")
+
+[node name="16" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.48605, 0, 0)
+mesh = SubResource("BoxMesh_yaxm4")
+surface_material_override/0 = SubResource("StandardMaterial3D_qukkj")

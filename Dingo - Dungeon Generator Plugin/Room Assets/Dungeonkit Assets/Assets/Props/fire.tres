@@ -1,0 +1,26 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=5 format=3 uid="uid://cuiel4vtlu0l"]
+
+[sub_resource type="Gradient" id="Gradient_7onqi"]
+colors = PackedColorArray(0.79002804, 0.03174868, 0.019576605, 1, 0.8578899, 0.6601444, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_akjog"]
+gradient = SubResource("Gradient_7onqi")
+
+[sub_resource type="Curve" id="Curve_nymwo"]
+_data = [Vector2(0.0147783235, 0.65562916), 0.0, 0.0, 0, 0, Vector2(0.16995075, 1), 0.0, 0.0, 0, 0, Vector2(0.49507394, 0.7232734), 0.0, 0.0, 0, 0, Vector2(0.913793, 0.19121689), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_kyo53"]
+curve = SubResource("Curve_nymwo")
+
+[resource]
+emission_shape = 1
+emission_sphere_radius = 0.02
+spread = 67.61
+angular_velocity_min = 50.399982
+angular_velocity_max = 212.37997
+gravity = Vector3(0, 4, 0)
+scale_min = 0.01
+scale_max = 0.04
+scale_curve = SubResource("CurveTexture_kyo53")
+color_ramp = SubResource("GradientTexture1D_akjog")

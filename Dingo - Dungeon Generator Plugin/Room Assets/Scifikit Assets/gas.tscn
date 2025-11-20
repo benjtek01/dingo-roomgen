@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://duvnq0owms8jk"]
+
+[ext_resource type="PackedScene" uid="uid://b2rvk8dx3nsr5" path="res://Dingo - Dungeon Generator Plugin/Room Assets/Scifikit Assets/gas.fbx" id="1_i0ky7"]
+
+[node name="gas" instance=ExtResource("1_i0ky7")]

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq136gdmq31ms"]
+
+[ext_resource type="PackedScene" uid="uid://6e1e11mtoaic" path="res://Dingo - Dungeon Generator Plugin/Room Assets/Dungeonkit Assets/Assets/Room pieces/dungeonkit_stone_wall.fbx" id="1_e51u3"]
+
+[node name="dungeonkit_stone_wall" instance=ExtResource("1_e51u3")]

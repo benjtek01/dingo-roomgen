@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="RoomType" load_steps=2 format=3 uid="uid://dyraud4nbslty"]
+
+[ext_resource type="Script" uid="uid://dnxnmk7p8ya0s" path="res://Dingo - Dungeon Generator Plugin/Scripts/dingo_room_types.gd" id="1_vx30a"]
+
+[resource]
+script = ExtResource("1_vx30a")
+name = "Trap Room"
+priority = 6
+room_amount = 2
+recursion = 30
+tile_id = 7
+room_margin = 0
+placement_mode = 2
+range_min = Vector3i(11, 0, 0)
+range_max = Vector3i(130, 0, 105)
+size_mode = 1
+min_size = Vector3i(3, 3, 3)
+max_size = Vector3i(4, 1, 4)
+metadata/_custom_type_script = "uid://dnxnmk7p8ya0s"
+metadata/_last_val = [Vector3i(11, 0, 0), Vector3i(130, 0, 105), Vector3i(3, 3, 3), Vector3i(4, 1, 4), 0]
+metadata/_editing = false

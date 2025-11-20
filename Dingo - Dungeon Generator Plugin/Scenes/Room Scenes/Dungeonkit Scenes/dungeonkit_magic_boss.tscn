@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://dafrvrsveqshk"]
+
+[ext_resource type="PackedScene" uid="uid://ctjrif4ryam30" path="res://Dingo - Dungeon Generator Plugin/Room Assets/Dungeonkit Assets/Assets/Static Rooms/dungeonkit_magic_boss.fbx" id="1_kd4od"]
+[ext_resource type="PackedScene" uid="uid://dh8m60n5hc1s2" path="res://Dingo - Dungeon Generator Plugin/Room Assets/Dungeonkit Assets/Assets/Props/fire.tscn" id="2_23i4u"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="dungeonkit_magic_boss" parent="." instance=ExtResource("1_kd4od")]
+transform = Transform3D(-6.7752652e-09, 0, 0.155, 0, 0.155, 0, -0.155, 0, -6.7752652e-09, 0.17315722, -0.8730024, 0.11436558)
+
+[node name="fire" parent="." instance=ExtResource("2_23i4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35866186, 0.8110394, -1.5219978)
+
+[node name="fire2" parent="." instance=ExtResource("2_23i4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.69556355, 0.8110394, -1.5219978)
+
+[node name="fire3" parent="." instance=ExtResource("2_23i4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4355049, 0.8110394, -1.1523215)
+
+[node name="fire4" parent="." instance=ExtResource("2_23i4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8244964, 0.8110394, -0.3910429)
+
+[node name="fire5" parent="." instance=ExtResource("2_23i4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8244964, 0.8110394, 0.65680313)
+
+[node name="fire6" parent="." instance=ExtResource("2_23i4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4428165, 0.8110394, 1.4331669)
+
+[node name="fire7" parent="." instance=ExtResource("2_23i4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34648925, 0.8110394, 1.7950022)
+
+[node name="fire8" parent="." instance=ExtResource("2_23i4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0962676, 0.8110394, 1.4368224)
+
+[node name="fire9" parent="." instance=ExtResource("2_23i4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4713825, 0.8110394, 0.6667812)
+
+[node name="fire10" parent="." instance=ExtResource("2_23i4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4713825, 0.8110394, -0.3854509)
+
+[node name="fire11" parent="." instance=ExtResource("2_23i4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.114194, 0.8110394, -1.1334846)

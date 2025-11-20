@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cia2f4ai7bd5x"]
+
+[ext_resource type="PackedScene" uid="uid://cil2rvxk3hm5m" path="res://Dingo - Dungeon Generator Plugin/Room Assets/Dungeonkit Assets/Assets/Static Rooms/dungeonkit_starting_room.fbx" id="1_poor2"]
+
+[node name="dungeonkit_starting_room" instance=ExtResource("1_poor2")]

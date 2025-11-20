@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="RoomType" load_steps=3 format=3 uid="uid://01s4bc551qjm"]
+
+[ext_resource type="Script" uid="uid://dnxnmk7p8ya0s" path="res://Dingo - Dungeon Generator Plugin/Scripts/dingo_room_types.gd" id="1_ejbu6"]
+[ext_resource type="PackedScene" uid="uid://bcesv64p2h7v0" path="res://Dingo - Dungeon Generator Plugin/Scenes/Room Scenes/Defaultkit Scenes/start_scene.tscn" id="1_f4x35"]
+
+[resource]
+script = ExtResource("1_ejbu6")
+scene_mode = 1
+dynamic_scenes = Array[PackedScene]([ExtResource("1_f4x35")])
+name = "Starting Room"
+priority = 0
+room_amount = 1
+recursion = 30
+tile_id = 3
+room_margin = 0
+door_mode = 0
+static_doors = Array[Vector3i]([Vector3i(1, 0, 0)])
+placement_mode = 0
+static_positions = Array[Vector3i]([Vector3i(8, 0, 36)])
+size_mode = 0
+static_sizes = Array[Vector3i]([Vector3i(5, 0, 3)])
+metadata/_custom_type_script = "uid://dnxnmk7p8ya0s"

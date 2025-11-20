@@ -1,0 +1,712 @@
+[gd_scene load_steps=16 format=3 uid="uid://b6gjy6bse0iln"]
+
+[ext_resource type="Script" uid="uid://dj5hge7og33er" path="res://Dingo - Dungeon Generator Plugin/Scripts/dingo_generator.gd" id="1_qqye8"]
+[ext_resource type="Script" uid="uid://dnxnmk7p8ya0s" path="res://Dingo - Dungeon Generator Plugin/Scripts/dingo_room_types.gd" id="2_kd15a"]
+[ext_resource type="Resource" uid="uid://kf5ib4knrxuw" path="res://Dingo - Dungeon Generator Plugin/Room Types/ScifiKit/standardscifi_room.tres" id="3_qqye8"]
+[ext_resource type="MeshLibrary" uid="uid://dq8bbhh880skx" path="res://Dingo - Dungeon Generator Plugin/Mesh Libraries/DungeonKit.tres" id="6_6v2ur"]
+[ext_resource type="Resource" uid="uid://01s4bc551qjm" path="res://Dingo - Dungeon Generator Plugin/Room Types/DefaultKit/starting_room.tres" id="7_jyjti"]
+[ext_resource type="Script" uid="uid://c1eqivxowbyo8" path="res://Dingo - Dungeon Generator Plugin/Scripts/dingo_builder.gd" id="7_kpqxj"]
+[ext_resource type="Resource" uid="uid://clax0l0c2tlth" path="res://Dingo - Dungeon Generator Plugin/Room Types/DefaultKit/boss_room.tres" id="8_rgi12"]
+[ext_resource type="PackedScene" uid="uid://bvvmnjua3wn3o" path="res://Dingo - Dungeon Generator Plugin/Scenes/Room Scenes/Defaultkit Scenes/corridor_scene.tscn" id="8_sb524"]
+[ext_resource type="PackedScene" uid="uid://qjko0lksug4f" path="res://Dingo - Dungeon Generator Plugin/Scenes/Room Scenes/ScifiKit Scenes/standardscifi01.tscn" id="11_qqye8"]
+
+[sub_resource type="Resource" id="Resource_46cgg"]
+script = ExtResource("2_kd15a")
+scene_mode = 0
+static_scenes = Array[PackedScene]([])
+name = "octagon_room"
+priority = 15
+room_amount = 20
+recursion = 10
+tile_id = 8
+room_margin = 1
+door_mode = 0
+static_doors = Array[Vector3i]([Vector3i(2, 0, 0), Vector3i(0, 0, 3)])
+placement_mode = 1
+size_mode = 0
+static_sizes = Array[Vector3i]([Vector3i(4, 0, 4)])
+metadata/_custom_type_script = "uid://dnxnmk7p8ya0s"
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g4sdw"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_670jf"]
+sky_material = SubResource("ProceduralSkyMaterial_g4sdw")
+
+[sub_resource type="Environment" id="Environment_5wmbg"]
+background_mode = 2
+sky = SubResource("Sky_670jf")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="GDScript" id="GDScript_670jf"]
+script/source = "extends CharacterBody3D
+
+
+const SPEED = 5.0
+const JUMP_VELOCITY = 4.5
+
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var input_dir := Input.get_vector(\"ui_left\", \"ui_right\", \"ui_up\", \"ui_down\")
+	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+
+	move_and_slide()
+"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4sdw"]
+
+[node name="Dungeon" type="Node3D"]
+script = ExtResource("1_qqye8")
+guarantee_all_room_amounts = true
+border_height = 40
+room_types = Array[ExtResource("2_kd15a")]([ExtResource("3_qqye8"), SubResource("Resource_46cgg")])
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5wmbg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000319004, -0.0049119, 0.00154376)
+visible = false
+mesh_library = ExtResource("6_6v2ur")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65535, 65535, 0, 65535, 40, 0, 0, 65535, 0, 0, 40, 0, 1, 65535, 0, 1, 40, 0, 2, 65535, 0, 2, 40, 0, 3, 65535, 0, 3, 40, 0, 4, 65535, 0, 4, 40, 0, 5, 65535, 0, 5, 40, 0, 6, 65535, 0, 6, 40, 0, 7, 65535, 0, 7, 40, 0, 8, 65535, 0, 8, 40, 0, 9, 65535, 0, 9, 40, 0, 10, 65535, 0, 10, 40, 0, 11, 65535, 0, 11, 40, 0, 12, 65535, 0, 12, 40, 0, 13, 65535, 0, 13, 40, 0, 14, 65535, 0, 14, 40, 0, 15, 65535, 0, 15, 40, 0, 16, 65535, 0, 16, 40, 0, 17, 65535, 0, 17, 40, 0, 18, 65535, 0, 18, 40, 0, 19, 65535, 0, 19, 40, 0, 20, 65535, 0, 20, 40, 0, 65535, 0, 0, 20, 0, 0, 65535, 1, 0, 20, 1, 0, 65535, 2, 0, 20, 2, 0, 65535, 3, 0, 20, 3, 0, 65535, 4, 0, 20, 4, 0, 65535, 5, 0, 20, 5, 0, 65535, 6, 0, 20, 6, 0, 65535, 7, 0, 20, 7, 0, 65535, 8, 0, 20, 8, 0, 65535, 9, 0, 20, 9, 0, 65535, 10, 0, 20, 10, 0, 65535, 11, 0, 20, 11, 0, 65535, 12, 0, 20, 12, 0, 65535, 13, 0, 20, 13, 0, 65535, 14, 0, 20, 14, 0, 65535, 15, 0, 20, 15, 0, 65535, 16, 0, 20, 16, 0, 65535, 17, 0, 20, 17, 0, 65535, 18, 0, 20, 18, 0, 65535, 19, 0, 20, 19, 0, 65535, 20, 0, 20, 20, 0, 65535, 21, 0, 20, 21, 0, 65535, 22, 0, 20, 22, 0, 65535, 23, 0, 20, 23, 0, 65535, 24, 0, 20, 24, 0, 65535, 25, 0, 20, 25, 0, 65535, 26, 0, 20, 26, 0, 65535, 27, 0, 20, 27, 0, 65535, 28, 0, 20, 28, 0, 65535, 29, 0, 20, 29, 0, 65535, 30, 0, 20, 30, 0, 65535, 31, 0, 20, 31, 0, 65535, 32, 0, 20, 32, 0, 65535, 33, 0, 20, 33, 0, 65535, 34, 0, 20, 34, 0, 65535, 35, 0, 20, 35, 0, 65535, 36, 0, 20, 36, 0, 65535, 37, 0, 20, 37, 0, 65535, 38, 0, 20, 38, 0, 65535, 39, 0, 20, 39, 0, 13, 7, 8, 14, 7, 8, 15, 7, 15, 16, 7, 8, 13, 8, 8, 14, 8, 8, 15, 8, 8, 16, 8, 8, 13, 9, 8, 14, 9, 8, 15, 9, 8, 16, 9, 8, 13, 10, 15, 14, 10, 8, 15, 10, 8, 16, 10, 8, 7, 27, 8, 8, 27, 8, 9, 27, 15, 10, 27, 8, 7, 28, 8, 8, 28, 8, 9, 28, 8, 10, 28, 8, 7, 29, 8, 8, 29, 8, 9, 29, 8, 10, 29, 8, 7, 30, 15, 8, 30, 8, 9, 30, 8, 10, 30, 8, 15, 23, 8, 16, 23, 8, 17, 23, 15, 18, 23, 8, 15, 24, 8, 16, 24, 8, 17, 24, 8, 18, 24, 8, 15, 25, 8, 16, 25, 8, 17, 25, 8, 18, 25, 8, 15, 26, 15, 16, 26, 8, 17, 26, 8, 18, 26, 8, 1, 3, 8, 2, 3, 8, 3, 3, 15, 4, 3, 8, 1, 4, 8, 2, 4, 8, 3, 4, 8, 4, 4, 8, 1, 5, 8, 2, 5, 8, 3, 5, 8, 4, 5, 8, 1, 6, 15, 2, 6, 8, 3, 6, 8, 4, 6, 8, 6, 6, 8, 7, 6, 8, 8, 6, 15, 9, 6, 8, 6, 7, 8, 7, 7, 8, 8, 7, 8, 9, 7, 8, 6, 8, 8, 7, 8, 8, 8, 8, 8, 9, 8, 8, 6, 9, 15, 7, 9, 8, 8, 9, 8, 9, 9, 8, 8, 13, 8, 9, 13, 8, 10, 13, 15, 11, 13, 8, 8, 14, 8, 9, 14, 8, 10, 14, 8, 11, 14, 8, 8, 15, 8, 9, 15, 8, 10, 15, 8, 11, 15, 8, 8, 16, 15, 9, 16, 8, 10, 16, 8, 11, 16, 8, 15, 33, 8, 16, 33, 8, 17, 33, 15, 18, 33, 8, 15, 34, 8, 16, 34, 8, 17, 34, 8, 18, 34, 8, 15, 35, 8, 16, 35, 8, 17, 35, 8, 18, 35, 8, 15, 36, 15, 16, 36, 8, 17, 36, 8, 18, 36, 8, 2, 19, 8, 3, 19, 8, 4, 19, 15, 5, 19, 8, 2, 20, 8, 3, 20, 8, 4, 20, 8, 5, 20, 8, 2, 21, 8, 3, 21, 8, 4, 21, 8, 5, 21, 8, 2, 22, 15, 3, 22, 8, 4, 22, 8, 5, 22, 8, 2, 9, 2, 3, 9, 2, 4, 9, 15, 2, 10, 2, 3, 10, 2, 4, 10, 2, 2, 11, 2, 3, 11, 2, 4, 11, 2, 2, 12, 2, 3, 12, 2, 4, 12, 2, 11, 1, 2, 12, 1, 2, 13, 1, 2, 14, 1, 2, 11, 2, 2, 12, 2, 2, 13, 2, 2, 14, 2, 2, 11, 3, 2, 12, 3, 2, 13, 3, 2, 14, 3, 15, 15, 18, 15, 16, 18, 2, 17, 18, 2, 18, 18, 2, 15, 19, 15, 16, 19, 2, 17, 19, 2, 18, 19, 2, 15, 20, 2, 16, 20, 2, 17, 20, 15, 18, 20, 2, 15, 6, 14, 15, 5, 14, 15, 4, 14, 15, 3, 14, 14, 6, 14, 13, 6, 14, 12, 6, 14, 11, 6, 14, 10, 6, 14, 10, 5, 14, 9, 5, 14, 8, 5, 14, 12, 10, 14, 11, 10, 14, 10, 10, 14, 9, 10, 14, 8, 10, 14, 7, 10, 14, 6, 10, 14, 13, 11, 14, 14, 11, 14, 15, 11, 14, 15, 12, 14, 15, 13, 14, 15, 14, 14, 15, 15, 14, 15, 16, 14, 15, 17, 14, 9, 26, 14, 9, 25, 14, 9, 24, 14, 9, 23, 14, 10, 23, 14, 11, 23, 14, 12, 23, 14, 13, 23, 14, 14, 23, 14, 14, 22, 14, 15, 22, 14, 16, 22, 14, 17, 22, 14, 7, 31, 14, 8, 31, 14, 9, 31, 14, 10, 31, 14, 11, 31, 14, 11, 30, 14, 11, 29, 14, 11, 28, 14, 11, 27, 14, 11, 26, 14, 12, 26, 14, 13, 26, 14, 14, 26, 14, 10, 26, 14, 15, 27, 14, 16, 27, 14, 17, 27, 14, 17, 28, 14, 17, 29, 14, 17, 30, 14, 17, 31, 14, 17, 32, 14, 12, 31, 14, 13, 31, 14, 14, 31, 14, 14, 32, 14, 14, 33, 14, 14, 34, 14, 14, 35, 14, 14, 36, 14, 17, 21, 14, 18, 22, 14, 19, 22, 14, 19, 23, 14, 19, 24, 14, 19, 25, 14, 19, 26, 14, 19, 27, 14, 19, 28, 14, 19, 29, 14, 19, 30, 14, 19, 31, 14, 19, 32, 14, 18, 32, 14, 15, 28, 14, 15, 29, 14, 15, 30, 14, 15, 31, 14, 15, 32, 14, 16, 21, 14, 15, 21, 14, 14, 21, 14, 14, 20, 14, 14, 19, 14, 13, 19, 14, 12, 19, 14, 11, 19, 14, 10, 19, 14, 9, 19, 14, 8, 19, 14, 7, 19, 14, 6, 19, 14, 6, 18, 14, 5, 18, 14, 4, 18, 14, 14, 25, 14, 14, 24, 14, 8, 23, 14, 7, 23, 14, 6, 23, 14, 5, 23, 14, 4, 23, 14, 3, 23, 14, 2, 23, 14, 3, 2, 14, 4, 2, 14, 5, 2, 14, 6, 2, 14, 7, 2, 14, 8, 2, 14, 8, 3, 14, 8, 4, 14, 1, 7, 14, 2, 7, 14, 3, 7, 14, 4, 7, 14, 5, 7, 14, 5, 8, 14, 5, 9, 14, 10, 7, 14, 10, 8, 14, 10, 9, 14, 10, 11, 14, 10, 12, 14, 7, 11, 14, 7, 12, 14, 7, 13, 14, 7, 14, 14, 7, 15, 14, 7, 16, 14, 11, 12, 14, 12, 12, 14, 13, 12, 14, 14, 12, 14, 9, 12, 14, 8, 12, 14, 7, 17, 14, 7, 18, 14, 8, 17, 14, 8, 18, 14, 8, 20, 14, 8, 21, 14, 8, 22, 14, 7, 22, 14, 6, 22, 14, 9, 18, 14, 10, 18, 14, 11, 18, 14, 12, 18, 14, 13, 18, 14, 14, 18, 14)
+}
+
+[node name="PositionTester" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8318558, 0, 37.128826)
+
+[node name="RoomMesh" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.186497, 0)
+script = ExtResource("7_kpqxj")
+grid_map_path = NodePath("../GridMap")
+corridor_scene = ExtResource("8_sb524")
+room_types = Array[ExtResource("2_kd15a")]([ExtResource("7_jyjti"), ExtResource("3_qqye8"), ExtResource("8_rgi12"), SubResource("Resource_46cgg")])
+
+[node name="RoomCell" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 9.5)
+
+[node name="@Node3D@38279" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 9.5)
+
+[node name="@Node3D@38280" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 10.5)
+
+[node name="@Node3D@38281" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 10.5)
+
+[node name="@Node3D@38282" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 10.5)
+
+[node name="@Node3D@38283" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 11.5)
+
+[node name="@Node3D@38284" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 11.5)
+
+[node name="@Node3D@38285" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 11.5)
+
+[node name="@Node3D@38286" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 12.5)
+
+[node name="@Node3D@38287" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 12.5)
+
+[node name="@Node3D@38288" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 12.5)
+
+[node name="@Node3D@38289" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 1.5)
+
+[node name="@Node3D@38290" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 1.5)
+
+[node name="@Node3D@38291" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 1.5)
+
+[node name="@Node3D@38292" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 1.5)
+
+[node name="@Node3D@38293" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 2.5)
+
+[node name="@Node3D@38294" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 2.5)
+
+[node name="@Node3D@38295" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 2.5)
+
+[node name="@Node3D@38296" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 2.5)
+
+[node name="@Node3D@38297" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 3.5)
+
+[node name="@Node3D@38298" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 3.5)
+
+[node name="@Node3D@38299" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 3.5)
+
+[node name="@Node3D@38300" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 18.5)
+
+[node name="@Node3D@38301" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 18.5)
+
+[node name="@Node3D@38302" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 18.5)
+
+[node name="@Node3D@38303" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 19.5)
+
+[node name="@Node3D@38304" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 19.5)
+
+[node name="@Node3D@38305" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 19.5)
+
+[node name="@Node3D@38306" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 20.5)
+
+[node name="@Node3D@38307" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 20.5)
+
+[node name="@Node3D@38308" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 20.5)
+
+[node name="@Node3D@38309" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 6.5)
+
+[node name="@Node3D@38310" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 5.5)
+
+[node name="@Node3D@38311" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 4.5)
+
+[node name="@Node3D@38312" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 3.5)
+
+[node name="@Node3D@38313" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 6.5)
+
+[node name="@Node3D@38314" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 6.5)
+
+[node name="@Node3D@38315" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 6.5)
+
+[node name="@Node3D@38316" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 6.5)
+
+[node name="@Node3D@38317" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 6.5)
+
+[node name="@Node3D@38318" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 5.5)
+
+[node name="@Node3D@38319" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 5.5)
+
+[node name="@Node3D@38320" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 5.5)
+
+[node name="@Node3D@38321" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 10.5)
+
+[node name="@Node3D@38322" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 10.5)
+
+[node name="@Node3D@38323" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 10.5)
+
+[node name="@Node3D@38324" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 10.5)
+
+[node name="@Node3D@38325" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 10.5)
+
+[node name="@Node3D@38326" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 10.5)
+
+[node name="@Node3D@38327" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 10.5)
+
+[node name="@Node3D@38328" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 11.5)
+
+[node name="@Node3D@38329" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 11.5)
+
+[node name="@Node3D@38330" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 11.5)
+
+[node name="@Node3D@38331" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 12.5)
+
+[node name="@Node3D@38332" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 13.5)
+
+[node name="@Node3D@38333" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 14.5)
+
+[node name="@Node3D@38334" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 15.5)
+
+[node name="@Node3D@38335" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 16.5)
+
+[node name="@Node3D@38336" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 17.5)
+
+[node name="@Node3D@38337" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 26.5)
+
+[node name="@Node3D@38338" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 25.5)
+
+[node name="@Node3D@38339" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 24.5)
+
+[node name="@Node3D@38340" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 23.5)
+
+[node name="@Node3D@38341" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 23.5)
+
+[node name="@Node3D@38342" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 23.5)
+
+[node name="@Node3D@38343" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 23.5)
+
+[node name="@Node3D@38344" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 23.5)
+
+[node name="@Node3D@38345" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 23.5)
+
+[node name="@Node3D@38346" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 22.5)
+
+[node name="@Node3D@38347" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 22.5)
+
+[node name="@Node3D@38348" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 22.5)
+
+[node name="@Node3D@38349" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 22.5)
+
+[node name="@Node3D@38350" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 31.5)
+
+[node name="@Node3D@38351" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 31.5)
+
+[node name="@Node3D@38352" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 31.5)
+
+[node name="@Node3D@38353" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 31.5)
+
+[node name="@Node3D@38354" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 31.5)
+
+[node name="@Node3D@38355" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 30.5)
+
+[node name="@Node3D@38356" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 29.5)
+
+[node name="@Node3D@38357" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 28.5)
+
+[node name="@Node3D@38358" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 27.5)
+
+[node name="@Node3D@38359" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 26.5)
+
+[node name="@Node3D@38360" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 26.5)
+
+[node name="@Node3D@38361" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 26.5)
+
+[node name="@Node3D@38362" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 26.5)
+
+[node name="@Node3D@38363" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 26.5)
+
+[node name="@Node3D@38364" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 27.5)
+
+[node name="@Node3D@38365" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 27.5)
+
+[node name="@Node3D@38366" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 27.5)
+
+[node name="@Node3D@38367" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 28.5)
+
+[node name="@Node3D@38368" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 29.5)
+
+[node name="@Node3D@38369" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 30.5)
+
+[node name="@Node3D@38370" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 31.5)
+
+[node name="@Node3D@38371" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 32.5)
+
+[node name="@Node3D@38372" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 31.5)
+
+[node name="@Node3D@38373" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 31.5)
+
+[node name="@Node3D@38374" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 31.5)
+
+[node name="@Node3D@38375" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 32.5)
+
+[node name="@Node3D@38376" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 33.5)
+
+[node name="@Node3D@38377" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 34.5)
+
+[node name="@Node3D@38378" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 35.5)
+
+[node name="@Node3D@38379" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 36.5)
+
+[node name="@Node3D@38380" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 21.5)
+
+[node name="@Node3D@38381" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 22.5)
+
+[node name="@Node3D@38382" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 22.5)
+
+[node name="@Node3D@38383" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 23.5)
+
+[node name="@Node3D@38384" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 24.5)
+
+[node name="@Node3D@38385" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 25.5)
+
+[node name="@Node3D@38386" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 26.5)
+
+[node name="@Node3D@38387" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 27.5)
+
+[node name="@Node3D@38388" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 28.5)
+
+[node name="@Node3D@38389" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 29.5)
+
+[node name="@Node3D@38390" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 30.5)
+
+[node name="@Node3D@38391" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 31.5)
+
+[node name="@Node3D@38392" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 19.5, 0, 32.5)
+
+[node name="@Node3D@38393" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 18.5, 0, 32.5)
+
+[node name="@Node3D@38394" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 28.5)
+
+[node name="@Node3D@38395" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 29.5)
+
+[node name="@Node3D@38396" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 30.5)
+
+[node name="@Node3D@38397" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 31.5)
+
+[node name="@Node3D@38398" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 32.5)
+
+[node name="@Node3D@38399" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 16.5, 0, 21.5)
+
+[node name="@Node3D@38400" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 21.5)
+
+[node name="@Node3D@38401" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 21.5)
+
+[node name="@Node3D@38402" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 20.5)
+
+[node name="@Node3D@38403" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 19.5)
+
+[node name="@Node3D@38404" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 19.5)
+
+[node name="@Node3D@38405" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 19.5)
+
+[node name="@Node3D@38406" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 19.5)
+
+[node name="@Node3D@38407" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 19.5)
+
+[node name="@Node3D@38408" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 19.5)
+
+[node name="@Node3D@38409" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 19.5)
+
+[node name="@Node3D@38410" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 19.5)
+
+[node name="@Node3D@38411" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 19.5)
+
+[node name="@Node3D@38412" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 18.5)
+
+[node name="@Node3D@38413" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 18.5)
+
+[node name="@Node3D@38414" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 18.5)
+
+[node name="@Node3D@38415" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 25.5)
+
+[node name="@Node3D@38416" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 24.5)
+
+[node name="@Node3D@38417" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 23.5)
+
+[node name="@Node3D@38418" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 23.5)
+
+[node name="@Node3D@38419" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 23.5)
+
+[node name="@Node3D@38420" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 23.5)
+
+[node name="@Node3D@38421" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 23.5)
+
+[node name="@Node3D@38422" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 23.5)
+
+[node name="@Node3D@38423" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 23.5)
+
+[node name="@Node3D@38424" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 2.5)
+
+[node name="@Node3D@38425" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 2.5)
+
+[node name="@Node3D@38426" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 2.5)
+
+[node name="@Node3D@38427" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 2.5)
+
+[node name="@Node3D@38428" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 2.5)
+
+[node name="@Node3D@38429" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 2.5)
+
+[node name="@Node3D@38430" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 3.5)
+
+[node name="@Node3D@38431" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 4.5)
+
+[node name="@Node3D@38432" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 1.5, 0, 7.5)
+
+[node name="@Node3D@38433" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 2.5, 0, 7.5)
+
+[node name="@Node3D@38434" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 3.5, 0, 7.5)
+
+[node name="@Node3D@38435" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 7.5)
+
+[node name="@Node3D@38436" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 7.5)
+
+[node name="@Node3D@38437" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 8.5)
+
+[node name="@Node3D@38438" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 5.5, 0, 9.5)
+
+[node name="@Node3D@38439" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 7.5)
+
+[node name="@Node3D@38440" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 8.5)
+
+[node name="@Node3D@38441" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 9.5)
+
+[node name="@Node3D@38442" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 11.5)
+
+[node name="@Node3D@38443" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 12.5)
+
+[node name="@Node3D@38444" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 11.5)
+
+[node name="@Node3D@38445" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 12.5)
+
+[node name="@Node3D@38446" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 13.5)
+
+[node name="@Node3D@38447" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 14.5)
+
+[node name="@Node3D@38448" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 15.5)
+
+[node name="@Node3D@38449" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 16.5)
+
+[node name="@Node3D@38450" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 12.5)
+
+[node name="@Node3D@38451" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 12.5)
+
+[node name="@Node3D@38452" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 12.5)
+
+[node name="@Node3D@38453" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 12.5)
+
+[node name="@Node3D@38454" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 12.5)
+
+[node name="@Node3D@38455" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 12.5)
+
+[node name="@Node3D@38456" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 17.5)
+
+[node name="@Node3D@38457" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 18.5)
+
+[node name="@Node3D@38458" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 17.5)
+
+[node name="@Node3D@38459" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 18.5)
+
+[node name="@Node3D@38460" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 20.5)
+
+[node name="@Node3D@38461" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 21.5)
+
+[node name="@Node3D@38462" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 8.5, 0, 22.5)
+
+[node name="@Node3D@38463" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 7.5, 0, 22.5)
+
+[node name="@Node3D@38464" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 6.5, 0, 22.5)
+
+[node name="@Node3D@38465" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 9.5, 0, 18.5)
+
+[node name="@Node3D@38466" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 10.5, 0, 18.5)
+
+[node name="@Node3D@38467" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 11.5, 0, 18.5)
+
+[node name="@Node3D@38468" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 12.5, 0, 18.5)
+
+[node name="@Node3D@38469" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 13.5, 0, 18.5)
+
+[node name="@Node3D@38470" parent="RoomMesh" instance=ExtResource("8_sb524")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 18.5)
+
+[node name="_Node3D_38279" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 4.5, 0, 9.5)
+
+[node name="_Node3D_38296" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 14.5, 0, 3.5)
+
+[node name="_Node3D_38300" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 18.5)
+
+[node name="_Node3D_38303" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 15.5, 0, 19.5)
+
+[node name="_Node3D_38304" parent="RoomMesh" instance=ExtResource("11_qqye8")]
+transform = Transform3D(0.49945, 0, 0, 0, 0.491043, 0, 0, 0, 0.499961, 17.5, 0, 20.5)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 9.62036, 0.0715464, 37.809196)
+script = SubResource("GDScript_670jf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_g4sdw")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0.707957, -0.444778)
+current = true

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="RoomType" load_steps=2 format=3 uid="uid://176ardy1g2j5"]
+
+[ext_resource type="Script" uid="uid://dnxnmk7p8ya0s" path="res://Dingo - Dungeon Generator Plugin/Scripts/dingo_room_types.gd" id="1_qdrry"]
+
+[resource]
+script = ExtResource("1_qdrry")
+scene_mode = 0
+static_scenes = null
+name = "Miniboss Room"
+priority = 3
+room_amount = 2
+recursion = 30
+tile_id = 4
+room_margin = 0
+placement_mode = 2
+range_min = Vector3i(35, 0, -10)
+range_max = Vector3i(90, 0, 40)
+size_mode = 1
+min_size = Vector3i(4, 1, 4)
+max_size = Vector3i(5, 1, 5)
+metadata/_custom_type_script = "uid://dnxnmk7p8ya0s"
+metadata/_last_val = [Vector3i(35, 0, -10), Vector3i(90, 0, 40), Vector3i(4, 1, 4), Vector3i(5, 1, 5), 0]
+metadata/_editing = false

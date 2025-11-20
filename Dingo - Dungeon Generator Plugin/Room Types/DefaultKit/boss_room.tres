@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="RoomType" load_steps=3 format=3 uid="uid://clax0l0c2tlth"]
+
+[ext_resource type="Script" uid="uid://dnxnmk7p8ya0s" path="res://Dingo - Dungeon Generator Plugin/Scripts/dingo_room_types.gd" id="1_5akub"]
+[ext_resource type="PackedScene" uid="uid://cqni8cskenm7p" path="res://Dingo - Dungeon Generator Plugin/Scenes/Room Scenes/Defaultkit Scenes/boss_scene.tscn" id="1_pkbd3"]
+
+[resource]
+script = ExtResource("1_5akub")
+scene_mode = 1
+dynamic_scenes = Array[PackedScene]([ExtResource("1_pkbd3")])
+name = "Boss Room"
+priority = 1
+room_amount = 3
+recursion = 30
+tile_id = 5
+room_margin = 1
+placement_mode = 2
+range_min = Vector3i(-10, 0, 0)
+range_max = Vector3i(75, 0, 10)
+size_mode = 1
+min_size = Vector3i(5, 1, 5)
+max_size = Vector3i(6, 1, 6)
+metadata/_custom_type_script = "uid://dnxnmk7p8ya0s"
+metadata/_last_val = [Vector3i(-10, 0, 0), Vector3i(75, 0, 10), Vector3i(5, 1, 5), Vector3i(6, 1, 6), 1]
+metadata/_editing = false
